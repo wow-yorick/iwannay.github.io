@@ -1,7 +1,8 @@
----
-layout: post
-title: 秋
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: 秋
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 昨天的霾还犹如世界末日，今天已经被雨洗刷的犹如重获新生。
 进入深秋，树叶犹如工程师的头发，微风一吹，就不受控制的掉落。虽显得不如盛夏样生机勃勃，但又有

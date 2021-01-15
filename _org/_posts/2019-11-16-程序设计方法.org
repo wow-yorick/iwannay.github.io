@@ -1,7 +1,8 @@
----
-layout: post
-title: 程序设计方法
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: 程序设计方法
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 1. 定义函数的名字 输入数据的定义 函数合约、头部和用途
 2. 构造使用函数的例子

@@ -1,7 +1,8 @@
----
-layout: post
-title: go的位运算
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: go的位运算
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 * ~&~ 位与
 ** 给定2个操作数a,b 当且仅当 a=b=1 时结果为1  否则为0

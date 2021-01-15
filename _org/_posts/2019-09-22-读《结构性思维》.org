@@ -1,7 +1,8 @@
----
-layout: post
-title: 读《结构性思维》
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: 读《结构性思维》
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 目的： 提升自己的思维，让思维有序,避免混乱
 

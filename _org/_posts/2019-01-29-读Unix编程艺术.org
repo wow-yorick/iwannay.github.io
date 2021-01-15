@@ -1,7 +1,8 @@
----
-layout: post
-title: 读Unix编程艺术
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: 读Unix编程艺术
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 ** 设计
 *** 程序库

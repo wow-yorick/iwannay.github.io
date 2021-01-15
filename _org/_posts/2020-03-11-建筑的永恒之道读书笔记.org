@@ -1,7 +1,8 @@
----
-layout: post
-title: 建筑的永恒之道读书笔记
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: 建筑的永恒之道读书笔记
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 特质： 出现于我们完全忘记了我们自己的时候 ~自持自立~
 

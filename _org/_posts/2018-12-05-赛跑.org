@@ -1,7 +1,8 @@
----
-layout: post
-title: 赛跑
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: 赛跑
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 临清风，对朗月，拔山泛水，肆酒高歌。
 

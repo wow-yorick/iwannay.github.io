@@ -1,7 +1,8 @@
----
-layout: post
-title: UNIX编程艺术
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: UNIX编程艺术
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 + 模块原则：使用简洁的接口拼合简单的部件
 + 清晰原则：清晰胜于技巧

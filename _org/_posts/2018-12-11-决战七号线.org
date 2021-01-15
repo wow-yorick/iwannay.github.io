@@ -1,7 +1,8 @@
----
-layout: post
-title: 决战七号线
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: 决战七号线
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 七号线周边由于资源丰富，价格便宜，历来受到各个侠客及门派的青睐。七号线自然成为必争之地。
 

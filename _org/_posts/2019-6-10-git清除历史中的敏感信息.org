@@ -1,7 +1,8 @@
----
-layout: post
-title: git清除历史中的敏感信息
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: git清除历史中的敏感信息
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 ** first
 #+BEGIN_SRC github

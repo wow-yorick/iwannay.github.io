@@ -1,7 +1,8 @@
----
-layout: post
-title: NSQ消息编码说明
----
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: NSQ消息编码说明
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 #+BEGIN_SRC golang
 // decodeMessage deserializes data (as []byte) and creates a new Message
