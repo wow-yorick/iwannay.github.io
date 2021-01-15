@@ -1,3 +1,8 @@
+#+AUTHOR: Yorick
+#+EMAIL: wowyorick@126.com
+#+TITLE: 学习写一个网络爬虫
+#+DATE: <2021-01-31 Sun>
+#+OPTIONS: ^:{}
 
 * 来源 [[https://github.com/gopcp][go并发编程实例]]
 

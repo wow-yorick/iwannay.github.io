@@ -1,170 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- 2021-01-15 五 17:51 -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>&lrm;</title>
-    <meta name="generator" content="Org mode" />
-    <meta name="author" content="Vincent Zhang" />
-    <script type="text/javascript">
-      /*
-      @licstart  The following is the entire license notice for the
-      JavaScript code in this tag.
+<div id="outline-container-orge66a596" class="outline-2">
+  <h2 id="orge66a596">
+    来源 <a href="https://github.com/gopcp">go并发编程实例</a>
+  </h2>
+</div>
 
-      Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-      The JavaScript code in this tag is free software: you can
-      redistribute it and/or modify it under the terms of the GNU
-      General Public License (GNU GPL) as published by the Free Software
-      Foundation, either version 3 of the License, or (at your option)
-      any later version.  The code is distributed WITHOUT ANY WARRANTY;
-      without even the implied warranty of MERCHANTABILITY or FITNESS
-      FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-      As additional permission under GNU GPL version 3 section 7, you
-      may distribute non-source (e.g., minimized or compacted) forms of
-      that code without the copy of the GNU GPL normally required by
-      section 4, provided you include this license notice and a URL
-      through which recipients can access the Corresponding Source.
-
-
-      @licend  The above is the entire license notice
-      for the JavaScript code in this tag.
-      */
-      <!--/*--><![CDATA[/*><!--*/
-       function CodeHighlightOn(elem, id)
-       {
-         var target = document.getElementById(id);
-         if(null != target) {
-           elem.cacheClassElem = elem.className;
-           elem.cacheClassTarget = target.className;
-           target.className = "code-highlighted";
-           elem.className   = "code-highlighted";
-         }
-       }
-       function CodeHighlightOff(elem, id)
-       {
-         var target = document.getElementById(id);
-         if(elem.cacheClassElem)
-           elem.className = elem.cacheClassElem;
-         if(elem.cacheClassTarget)
-           target.className = elem.cacheClassTarget;
-       }
-      /*]]>*///-->
-    </script>
-  </head>
-  <body>
-    <div id="preamble" class="status">
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="http://gongzhitaao.org/orgcss/org.css"
-      />
+<div id="outline-container-org8c3f687" class="outline-2">
+  <h2 id="org8c3f687">起始于首次请求的数据流程图</h2>
+  <div class="outline-text-2" id="text-org8c3f687">
+    <div class="figure">
+      <p><img src="../images/spider-0.png" alt="spider-0.png" /></p>
     </div>
-    <div id="content">
-      <div id="outline-container-org8d98fb4" class="outline-2">
-        <h2 id="org8d98fb4">
-          来源 <a href="https://github.com/gopcp">go并发编程实例</a>
-        </h2>
-      </div>
+  </div>
+</div>
 
-      <div id="outline-container-org218cf9c" class="outline-2">
-        <h2 id="org218cf9c">起始于首次请求的数据流程图</h2>
-        <div class="outline-text-2" id="text-org218cf9c">
-          <div class="figure">
-            <p><img src="../images/spider-0.png" alt="spider-0.png" /></p>
-          </div>
-        </div>
-      </div>
+<div id="outline-container-org1caa3b3" class="outline-2">
+  <h2 id="org1caa3b3">调度器与各处理模块的关系</h2>
+  <div class="outline-text-2" id="text-org1caa3b3">
+    <div class="figure">
+      <p><img src="../images/spider-1.png" alt="spider-1.png" /></p>
+    </div>
+  </div>
+</div>
 
-      <div id="outline-container-org1c3224f" class="outline-2">
-        <h2 id="org1c3224f">调度器与各处理模块的关系</h2>
-        <div class="outline-text-2" id="text-org1c3224f">
-          <div class="figure">
-            <p><img src="../images/spider-1.png" alt="spider-1.png" /></p>
-          </div>
-        </div>
-      </div>
+<div id="outline-container-org325b038" class="outline-2">
+  <h2 id="org325b038">基本数据结构</h2>
+  <div class="outline-text-2" id="text-org325b038">
+    <p>
+      <code>Request</code> 数据的请求 <code>Response</code> 数据的响应
+      <code>Item</code> 条目结构 <code>Error</code> 错误的类型 包含（ 错误的类型
+      错误的提示信息 完整的错误提示信息）
+    </p>
+  </div>
+</div>
 
-      <div id="outline-container-org4ac8d7c" class="outline-2">
-        <h2 id="org4ac8d7c">基本数据结构</h2>
-        <div class="outline-text-2" id="text-org4ac8d7c">
-          <p>
-            <code>Request</code> 数据的请求 <code>Response</code> 数据的响应
-            <code>Item</code> 条目结构 <code>Error</code> 错误的类型 包含（
-            错误的类型 错误的提示信息 完整的错误提示信息）
-          </p>
-        </div>
-      </div>
+<div id="outline-container-org029b58d" class="outline-2">
+  <h2 id="org029b58d">架构设计</h2>
+  <div class="outline-text-2" id="text-org029b58d"></div>
+  <div id="outline-container-org3f52355" class="outline-4">
+    <h4 id="org3f52355">处理模块的抽象接口声明 <code>Module</code></h4>
+    <div class="outline-text-4" id="text-org3f52355">
+      <ul class="org-ul">
+        <li><code>ID() MID</code> 获取当前组件的ID</li>
+        <li><code>Addr() string</code> 获取当前组件的网站地址</li>
+        <li><code>Score() uint64</code> 获取当前组件的评分</li>
+        <li><code>SetScore(score unit64)</code> 设置当前组件的评分</li>
+        <li><code>ScoreCalculator() CalculateScore</code> 获取评分计算器</li>
+        <li><code>CalledCount() uint64</code> 获取当前组件被调用的计数</li>
+        <li><code>AcceptedCount() uint64</code> 接受调用的次数</li>
+        <li><code>CompletedCount() uint64</code> 成功完成的调用计数</li>
+        <li><code>HandlingNumber() uint64</code> 正在处理的调用数</li>
+        <li><code>Counts() Counts</code> 获取所有的计数信息</li>
+        <li><code>Summary() SummaryStruct</code> 获取组件摘要</li>
+      </ul>
+    </div>
+  </div>
 
-      <div id="outline-container-orgd994fa4" class="outline-2">
-        <h2 id="orgd994fa4">架构设计</h2>
-        <div class="outline-text-2" id="text-orgd994fa4"></div>
-        <div id="outline-container-org8b8db5b" class="outline-4">
-          <h4 id="org8b8db5b">处理模块的抽象接口声明 <code>Module</code></h4>
-          <div class="outline-text-4" id="text-org8b8db5b">
-            <ul class="org-ul">
-              <li><code>ID() MID</code> 获取当前组件的ID</li>
-              <li><code>Addr() string</code> 获取当前组件的网站地址</li>
-              <li><code>Score() uint64</code> 获取当前组件的评分</li>
-              <li><code>SetScore(score unit64)</code> 设置当前组件的评分</li>
-              <li>
-                <code>ScoreCalculator() CalculateScore</code> 获取评分计算器
-              </li>
-              <li>
-                <code>CalledCount() uint64</code> 获取当前组件被调用的计数
-              </li>
-              <li><code>AcceptedCount() uint64</code> 接受调用的次数</li>
-              <li><code>CompletedCount() uint64</code> 成功完成的调用计数</li>
-              <li><code>HandlingNumber() uint64</code> 正在处理的调用数</li>
-              <li><code>Counts() Counts</code> 获取所有的计数信息</li>
-              <li><code>Summary() SummaryStruct</code> 获取组件摘要</li>
-            </ul>
-          </div>
-        </div>
+  <div id="outline-container-org691b390" class="outline-4">
+    <h4 id="org691b390">序列号生成器的接口设计 <code>SNGenertor</code></h4>
+    <div class="outline-text-4" id="text-org691b390">
+      <ul class="org-ul">
+        <li><code>Start() unit64</code> 获取预设的最小序列号</li>
+        <li><code>Max() unit64</code> 获取预设的最大序列号</li>
+        <li><code>Next() unit64</code> 下一个序列号</li>
+        <li><code>CycleCount() uint64</code> 获取循环计数</li>
+        <li><code>Get() uint64</code> 获取一个序列号并准备下一个序列号</li>
+      </ul>
 
-        <div id="outline-container-orge18eee8" class="outline-4">
-          <h4 id="orge18eee8">
-            序列号生成器的接口设计 <code>SNGenertor</code>
-          </h4>
-          <div class="outline-text-4" id="text-orge18eee8">
-            <ul class="org-ul">
-              <li><code>Start() unit64</code> 获取预设的最小序列号</li>
-              <li><code>Max() unit64</code> 获取预设的最大序列号</li>
-              <li><code>Next() unit64</code> 下一个序列号</li>
-              <li><code>CycleCount() uint64</code> 获取循环计数</li>
-              <li>
-                <code>Get() uint64</code> 获取一个序列号并准备下一个序列号
-              </li>
-            </ul>
+      <p>
+        组件ID的构成及生成方法
+        <img src="../images/spider-2.png" alt="spider-2.png" />
+      </p>
+    </div>
+  </div>
 
-            <p>
-              组件ID的构成及生成方法
-              <img src="../images/spider-2.png" alt="spider-2.png" />
-            </p>
-          </div>
-        </div>
-
-        <div id="outline-container-orgd79c4a2" class="outline-3">
-          <h3 id="orgd79c4a2">下载器</h3>
-          <div class="outline-text-3" id="text-orgd79c4a2">
-            <div class="org-src-container">
-              <pre
-                class="src src-go"
-              ><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Downloader</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
+  <div id="outline-container-org63a6a8e" class="outline-3">
+    <h3 id="org63a6a8e">下载器</h3>
+    <div class="outline-text-3" id="text-org63a6a8e">
+      <div class="org-src-container">
+        <pre
+          class="src src-go"
+        ><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Downloader</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
 Module
 <span style="color: #c678dd;">Download</span><span style="color: #c678dd;">(</span><span style="color: #dcaeea;">req</span> *<span style="color: #ECBE7B;">Request</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span>*<span style="color: #ECBE7B;">Response</span>, <span style="color: #ECBE7B;">error</span><span style="color: #c678dd;">)</span>
 <span style="color: #51afef;">}</span>
 </pre>
-            </div>
-          </div>
-        </div>
-        <div id="outline-container-orga1a392d" class="outline-3">
-          <h3 id="orga1a392d">分析器</h3>
-          <div class="outline-text-3" id="text-orga1a392d">
-            <div class="org-src-container">
-              <pre class="src src-go">
+      </div>
+    </div>
+  </div>
+  <div id="outline-container-orgd853033" class="outline-3">
+    <h3 id="orgd853033">分析器</h3>
+    <div class="outline-text-3" id="text-orgd853033">
+      <div class="org-src-container">
+        <pre class="src src-go">
 <span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">ParseResponse</span> <span style="color: #51afef;">func</span><span style="color: #51afef;">(</span><span style="color: #dcaeea;">httpResp</span> *<span style="color: #ECBE7B;">http.Response</span>, <span style="color: #dcaeea;">respDepth</span> <span style="color: #ECBE7B;">uint32</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">(</span><span style="color: #c678dd;">[]</span><span style="color: #ECBE7B;">Data</span>, <span style="color: #c678dd;">[]</span><span style="color: #ECBE7B;">error</span><span style="color: #51afef;">)</span>
 
 <span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Analyzer</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
@@ -175,16 +102,16 @@ Module
 <span style="color: #c678dd;">Analyze</span><span style="color: #c678dd;">(</span><span style="color: #dcaeea;">resp</span> *<span style="color: #ECBE7B;">Response</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #98be65;">[]</span><span style="color: #ECBE7B;">Data</span>, <span style="color: #98be65;">[]</span><span style="color: #ECBE7B;">error</span><span style="color: #c678dd;">)</span>
 <span style="color: #51afef;">}</span>
 </pre>
-            </div>
-          </div>
-        </div>
-        <div id="outline-container-org1905835" class="outline-3">
-          <h3 id="org1905835">条目处理管道</h3>
-          <div class="outline-text-3" id="text-org1905835">
-            <div class="org-src-container">
-              <pre
-                class="src src-go"
-              ><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Pipeline</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
+      </div>
+    </div>
+  </div>
+  <div id="outline-container-org4e73392" class="outline-3">
+    <h3 id="org4e73392">条目处理管道</h3>
+    <div class="outline-text-3" id="text-org4e73392">
+      <div class="org-src-container">
+        <pre
+          class="src src-go"
+        ><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Pipeline</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
 Module
 
 <span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#36820;&#22238;&#24403;&#21069;&#26465;&#30446;&#22788;&#29702;&#31649;&#36947;&#20351;&#29992;&#30340;&#26465;&#30446;&#22788;&#29702;&#20989;&#25968;&#21015;&#34920;</span>
@@ -202,16 +129,16 @@ Module
 
 <span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">ProcessItem</span> <span style="color: #51afef;">func</span><span style="color: #51afef;">(</span><span style="color: #dcaeea;">item</span> <span style="color: #ECBE7B;">Item</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">(</span><span style="color: #dcaeea;">result</span> <span style="color: #ECBE7B;">Item</span>, <span style="color: #dcaeea;">err</span> <span style="color: #ECBE7B;">error</span><span style="color: #51afef;">)</span>
 </pre>
-            </div>
-          </div>
-        </div>
-        <div id="outline-container-org0e8c628" class="outline-3">
-          <h3 id="org0e8c628">调度器</h3>
-          <div class="outline-text-3" id="text-org0e8c628">
-            <div class="org-src-container">
-              <pre
-                class="src src-go"
-              ><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Scheduler</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
+      </div>
+    </div>
+  </div>
+  <div id="outline-container-org93ce6b4" class="outline-3">
+    <h3 id="org93ce6b4">调度器</h3>
+    <div class="outline-text-3" id="text-org93ce6b4">
+      <div class="org-src-container">
+        <pre
+          class="src src-go"
+        ><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Scheduler</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
 <span style="color: #c678dd;">Init</span><span style="color: #c678dd;">(</span><span style="color: #dcaeea;">requestArgs</span> <span style="color: #ECBE7B;">RequestArgs</span>, <span style="color: #dcaeea;">dataArgs</span> <span style="color: #ECBE7B;">DataArgs</span>, <span style="color: #dcaeea;">moduleArgs</span> <span style="color: #ECBE7B;">ModuleArgs</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">err</span> <span style="color: #ECBE7B;">error</span><span style="color: #c678dd;">)</span>
 
 <span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#20197;&#39318;&#27425;&#35831;&#27714;&#20026;&#36215;&#28857;&#24320;&#22987;&#29228;&#21462;</span>
@@ -233,26 +160,16 @@ Module
 <span style="color: #51afef;">}</span>
 
 </pre>
-            </div>
-          </div>
+      </div>
+    </div>
 
-          <div id="outline-container-org5389334" class="outline-4">
-            <h4 id="org5389334">调度器的状态转换</h4>
-            <div class="outline-text-4" id="text-org5389334">
-              <div class="figure">
-                <p><img src="../images/spider-3.png" alt="spider-3.png" /></p>
-              </div>
-            </div>
-          </div>
+    <div id="outline-container-org370974f" class="outline-4">
+      <h4 id="org370974f">调度器的状态转换</h4>
+      <div class="outline-text-4" id="text-org370974f">
+        <div class="figure">
+          <p><img src="../images/spider-3.png" alt="spider-3.png" /></p>
         </div>
       </div>
     </div>
-    <div id="postamble" class="status">
-      <p class="author">Author: Vincent Zhang</p>
-      <p class="date">Created: 2021-01-15 五 17:51</p>
-      <p class="validation">
-        <a href="http://validator.w3.org/check?uri=referer">Validate</a>
-      </p>
-    </div>
-  </body>
-</html>
+  </div>
+</div>

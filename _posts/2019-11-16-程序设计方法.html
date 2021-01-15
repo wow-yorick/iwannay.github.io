@@ -1,87 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- 2021-01-15 五 17:51 -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>程序设计方法</title>
-    <meta name="generator" content="Org mode" />
-    <meta name="author" content="Yorick" />
-    <script type="text/javascript">
-      /*
-      @licstart  The following is the entire license notice for the
-      JavaScript code in this tag.
+<ol class="org-ol">
+  <li>定义函数的名字 输入数据的定义 函数合约、头部和用途</li>
+  <li>构造使用函数的例子</li>
+  <li>设计与数据定义相符的函数模板</li>
+</ol>
 
-      Copyright (C) 2012-2020 Free Software Foundation, Inc.
+<div id="outline-container-org02b9031" class="outline-3">
+  <h3 id="org02b9031">设计自引用数据定义的函数</h3>
+  <div class="outline-text-3" id="text-org02b9031">
+    <p>
+      要使递归的数据定义有意义,必须满足两个条件:
+    </p>
+    <ol class="org-ol">
+      <li>该定义必须至少含有两条子句；</li>
+      <li>其中至少一条子句不能引用定义自身；</li>
+    </ol>
 
-      The JavaScript code in this tag is free software: you can
-      redistribute it and/or modify it under the terms of the GNU
-      General Public License (GNU GPL) as published by the Free Software
-      Foundation, either version 3 of the License, or (at your option)
-      any later version.  The code is distributed WITHOUT ANY WARRANTY;
-      without even the implied warranty of MERCHANTABILITY or FITNESS
-      FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-      As additional permission under GNU GPL version 3 section 7, you
-      may distribute non-source (e.g., minimized or compacted) forms of
-      that code without the copy of the GNU GPL normally required by
-      section 4, provided you include this license notice and a URL
-      through which recipients can access the Corresponding Source.
-
-
-      @licend  The above is the entire license notice
-      for the JavaScript code in this tag.
-      */
-      <!--/*--><![CDATA[/*><!--*/
-       function CodeHighlightOn(elem, id)
-       {
-         var target = document.getElementById(id);
-         if(null != target) {
-           elem.cacheClassElem = elem.className;
-           elem.cacheClassTarget = target.className;
-           target.className = "code-highlighted";
-           elem.className   = "code-highlighted";
-         }
-       }
-       function CodeHighlightOff(elem, id)
-       {
-         var target = document.getElementById(id);
-         if(elem.cacheClassElem)
-           elem.className = elem.cacheClassElem;
-         if(elem.cacheClassTarget)
-           target.className = elem.cacheClassTarget;
-       }
-      /*]]>*///-->
-    </script>
-  </head>
-  <body>
-    <div id="preamble" class="status">
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="http://gongzhitaao.org/orgcss/org.css"
-      />
-    </div>
-    <div id="content">
-      <h1 class="title">程序设计方法</h1>
-      <ol class="org-ol">
-        <li>定义函数的名字 输入数据的定义 函数合约、头部和用途</li>
-        <li>构造使用函数的例子</li>
-        <li>设计与数据定义相符的函数模板</li>
-      </ol>
-
-      <div id="outline-container-org504cd1f" class="outline-3">
-        <h3 id="org504cd1f">设计自引用数据定义的函数</h3>
-        <div class="outline-text-3" id="text-org504cd1f">
-          <p>
-            要使递归的数据定义有意义,必须满足两个条件:
-          </p>
-          <ol class="org-ol">
-            <li>该定义必须至少含有两条子句；</li>
-            <li>其中至少一条子句不能引用定义自身；</li>
-          </ol>
-
-          <pre class="example">
+    <pre class="example">
 
 (define (fun-for-los a-list-of-symbol)
 (cond
@@ -90,135 +24,122 @@
 ... (fun-for-los (rest a-list-of-symbols)) ...]))
 
 </pre
-          >
+    >
 
-          <p>
-            主体 : 设计主体从不包含自然递归的那些cond子句开始.
-            对应的答案一般已由例子给出 然后再来处理那些包含自引用的情况
-            首先，考虑模板中每个表达式计算什么 eg:
-          </p>
-          <pre class="example">
+    <p>
+      主体 : 设计主体从不包含自然递归的那些cond子句开始.
+      对应的答案一般已由例子给出 然后再来处理那些包含自引用的情况
+      首先，考虑模板中每个表达式计算什么 eg:
+    </p>
+    <pre class="example">
 (define (how-many a-list-of-symbols)
 (cond
 [(empty? a-list-of-symbols) 0]
 [else (+ (how-many (cdr a-list-of-symbols)) 1)]))
 
 </pre
-          >
+    >
 
-          <table>
-            <colgroup>
-              <col class="org-left" />
+    <table>
+      <colgroup>
+        <col class="org-left" />
 
-              <col class="org-left" />
+        <col class="org-left" />
 
-              <col class="org-left" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope="col" class="org-left">阶段</th>
-                <th scope="col" class="org-left">目标</th>
-                <th scope="col" class="org-left">活动</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="org-left">数据分析和设计</td>
-                <td class="org-left">阐数定</td>
-                <td class="org-left">设计数据定义</td>
-              </tr>
+        <col class="org-left" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col" class="org-left">阶段</th>
+          <th scope="col" class="org-left">目标</th>
+          <th scope="col" class="org-left">活动</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="org-left">数据分析和设计</td>
+          <td class="org-left">阐数定</td>
+          <td class="org-left">设计数据定义</td>
+        </tr>
 
-              <tr>
-                <td class="org-left">合约，用途说明和函数头部</td>
-                <td class="org-left">&#xa0;</td>
-                <td class="org-left">&#xa0;</td>
-              </tr>
+        <tr>
+          <td class="org-left">合约，用途说明和函数头部</td>
+          <td class="org-left">&#xa0;</td>
+          <td class="org-left">&#xa0;</td>
+        </tr>
 
-              <tr>
-                <td class="org-left">例子</td>
-                <td class="org-left">&#xa0;</td>
-                <td class="org-left">&#xa0;</td>
-              </tr>
+        <tr>
+          <td class="org-left">例子</td>
+          <td class="org-left">&#xa0;</td>
+          <td class="org-left">&#xa0;</td>
+        </tr>
 
-              <tr>
-                <td class="org-left">模版</td>
-                <td class="org-left">&#xa0;</td>
-                <td class="org-left">&#xa0;</td>
-              </tr>
+        <tr>
+          <td class="org-left">模版</td>
+          <td class="org-left">&#xa0;</td>
+          <td class="org-left">&#xa0;</td>
+        </tr>
 
-              <tr>
-                <td class="org-left">主体</td>
-                <td class="org-left">&#xa0;</td>
-                <td class="org-left">&#xa0;</td>
-              </tr>
+        <tr>
+          <td class="org-left">主体</td>
+          <td class="org-left">&#xa0;</td>
+          <td class="org-left">&#xa0;</td>
+        </tr>
 
-              <tr>
-                <td class="org-left">测试</td>
-                <td class="org-left">&#xa0;</td>
-                <td class="org-left">&#xa0;</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        <tr>
+          <td class="org-left">测试</td>
+          <td class="org-left">&#xa0;</td>
+          <td class="org-left">&#xa0;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-      <div id="outline-container-org99c8cbc" class="outline-2">
-        <h2 id="org99c8cbc">一个函数表示一种依赖关系</h2>
-      </div>
+<div id="outline-container-org2f19e82" class="outline-2">
+  <h2 id="org2f19e82">一个函数表示一种依赖关系</h2>
+</div>
 
-      <div id="outline-container-org6024bc3" class="outline-2">
-        <h2 id="org6024bc3">
-          应该从严格分析输入输出之间的关系,根据数据分析结果,先设计一个模板,然后进一步完善,最后得到完整的函数定义
-        </h2>
-        <div class="outline-text-2" id="text-org6024bc3">
-          <ol class="org-ol">
-            <li>
-              如果问题的解答需要对某个变量的值进行分析，那么使用cond表达式
-            </li>
-            <li>
-              如果用到特定领域的知识，使用辅助函数
-              <ol class="org-ol">
-                <li>
-                  如果某个计算必须处理表，自然数或是其他任意大的数据，使用辅助函数
-                </li>
-              </ol>
-            </li>
-            <li>
-              如果函数的自然形态不是我们所期望的表达式，它很可能就是程序目标的一般形式
-            </li>
-          </ol>
-        </div>
-      </div>
+<div id="outline-container-orgb596345" class="outline-2">
+  <h2 id="orgb596345">
+    应该从严格分析输入输出之间的关系,根据数据分析结果,先设计一个模板,然后进一步完善,最后得到完整的函数定义
+  </h2>
+  <div class="outline-text-2" id="text-orgb596345">
+    <ol class="org-ol">
+      <li>如果问题的解答需要对某个变量的值进行分析，那么使用cond表达式</li>
+      <li>
+        如果用到特定领域的知识，使用辅助函数
+        <ol class="org-ol">
+          <li>
+            如果某个计算必须处理表，自然数或是其他任意大的数据，使用辅助函数
+          </li>
+        </ol>
+      </li>
+      <li>
+        如果函数的自然形态不是我们所期望的表达式，它很可能就是程序目标的一般形式
+      </li>
+    </ol>
+  </div>
+</div>
 
-      <div id="outline-container-org315a88a" class="outline-2">
-        <h2 id="org315a88a">函数清单的原则</h2>
-        <div class="outline-text-2" id="text-org315a88a">
-          <pre class="example">
+<div id="outline-container-orgba38792" class="outline-2">
+  <h2 id="orgba38792">函数清单的原则</h2>
+  <div class="outline-text-2" id="text-orgba38792">
+    <pre class="example">
 维护一张函数清单，其中放置程序所有的函数。按照设计诀窍开发每一个函数
 </pre
-          >
+    >
 
-          <p>
-            把函数加入函数清单前，先要检查是否已经存在相似的函数，或是清单中已经有了类似的函数说明。
-            我们应该尽量利用已有的
-            如果所设计的函数不依赖于清单中的其他函数，就可以进行测试，一旦完成了基本的函数测试，就可以测试其他的（调用基本函数的）函数，
-            直到清单中的所有函数都测试完成为止。我们应该在测试一个函数之前严格测试被他调用的其他函数，这样可以
-            减少此后逻辑错误的定位时间
-          </p>
-        </div>
-      </div>
+    <p>
+      把函数加入函数清单前，先要检查是否已经存在相似的函数，或是清单中已经有了类似的函数说明。
+      我们应该尽量利用已有的
+      如果所设计的函数不依赖于清单中的其他函数，就可以进行测试，一旦完成了基本的函数测试，就可以测试其他的（调用基本函数的）函数，
+      直到清单中的所有函数都测试完成为止。我们应该在测试一个函数之前严格测试被他调用的其他函数，这样可以
+      减少此后逻辑错误的定位时间
+    </p>
+  </div>
+</div>
 
-      <div id="outline-container-org6a45154" class="outline-2">
-        <h2 id="org6a45154">范化函数的使用是简化问题的最好方法</h2>
-      </div>
-    </div>
-    <div id="postamble" class="status">
-      <p class="date">Date: 2021-01-31 日 00:00</p>
-      <p class="author">Author: Yorick</p>
-      <p class="date">Created: 2021-01-15 五 17:51</p>
-      <p class="validation">
-        <a href="http://validator.w3.org/check?uri=referer">Validate</a>
-      </p>
-    </div>
-  </body>
-</html>
+<div id="outline-container-org989abab" class="outline-2">
+  <h2 id="org989abab">范化函数的使用是简化问题的最好方法</h2>
+</div>

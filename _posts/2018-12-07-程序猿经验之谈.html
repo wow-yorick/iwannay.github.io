@@ -1,86 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- 2021-01-15 五 17:51 -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>程序猿经验之谈</title>
-    <meta name="generator" content="Org mode" />
-    <meta name="author" content="Yorick" />
-    <script type="text/javascript">
-      /*
-      @licstart  The following is the entire license notice for the
-      JavaScript code in this tag.
+<p>
+  世界月新日异，计算机技术的变化可是最有代表性，手机基本上每年都更新迭代，每隔几个月总会有让人耳目一新的新技术新体验出现，
+  让人应接不暇。作为it男，看见这些炫酷的数码产品，真是馋的流口水呀。可惜囊中羞涩，根本跟没钱去买新品，一个手机都只能
+  到降价平稳期才敢下手，有个两三年都不敢换。作为穷人，只能努力工作咯。
+</p>
 
-      Copyright (C) 2012-2020 Free Software Foundation, Inc.
+<p>
+  作为互联网从业人员，在各种奇葩业务逻辑中浸淫多年，也有了点自己的小技巧。不然真会被代码折磨致死，从此失去信心，进而患上忧郁症。
+  还是要抗的住压力，怼的了产品经理，脸皮够厚，体格够壮。 下面聊聊我个人的小想法
+</p>
 
-      The JavaScript code in this tag is free software: you can
-      redistribute it and/or modify it under the terms of the GNU
-      General Public License (GNU GPL) as published by the Free Software
-      Foundation, either version 3 of the License, or (at your option)
-      any later version.  The code is distributed WITHOUT ANY WARRANTY;
-      without even the implied warranty of MERCHANTABILITY or FITNESS
-      FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-      As additional permission under GNU GPL version 3 section 7, you
-      may distribute non-source (e.g., minimized or compacted) forms of
-      that code without the copy of the GNU GPL normally required by
-      section 4, provided you include this license notice and a URL
-      through which recipients can access the Corresponding Source.
-
-
-      @licend  The above is the entire license notice
-      for the JavaScript code in this tag.
-      */
-      <!--/*--><![CDATA[/*><!--*/
-       function CodeHighlightOn(elem, id)
-       {
-         var target = document.getElementById(id);
-         if(null != target) {
-           elem.cacheClassElem = elem.className;
-           elem.cacheClassTarget = target.className;
-           target.className = "code-highlighted";
-           elem.className   = "code-highlighted";
-         }
-       }
-       function CodeHighlightOff(elem, id)
-       {
-         var target = document.getElementById(id);
-         if(elem.cacheClassElem)
-           elem.className = elem.cacheClassElem;
-         if(elem.cacheClassTarget)
-           target.className = elem.cacheClassTarget;
-       }
-      /*]]>*///-->
-    </script>
-  </head>
-  <body>
-    <div id="preamble" class="status">
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="http://gongzhitaao.org/orgcss/org.css"
-      />
-    </div>
-    <div id="content">
-      <h1 class="title">程序猿经验之谈</h1>
-      <p>
-        世界月新日异，计算机技术的变化可是最有代表性，手机基本上每年都更新迭代，每隔几个月总会有让人耳目一新的新技术新体验出现，
-        让人应接不暇。作为it男，看见这些炫酷的数码产品，真是馋的流口水呀。可惜囊中羞涩，根本跟没钱去买新品，一个手机都只能
-        到降价平稳期才敢下手，有个两三年都不敢换。作为穷人，只能努力工作咯。
-      </p>
-
-      <p>
-        作为互联网从业人员，在各种奇葩业务逻辑中浸淫多年，也有了点自己的小技巧。不然真会被代码折磨致死，从此失去信心，进而患上忧郁症。
-        还是要抗的住压力，怼的了产品经理，脸皮够厚，体格够壮。
-        下面聊聊我个人的小想法
-      </p>
-
-      <div id="outline-container-orgfb5803c" class="outline-3">
-        <h3 id="orgfb5803c">A</h3>
-        <div class="outline-text-3" id="text-orgfb5803c">
-          <div class="org-src-container">
-            <pre class="src src-PHP">
+<div id="outline-container-org8a70de1" class="outline-3">
+  <h3 id="org8a70de1">A</h3>
+  <div class="outline-text-3" id="text-org8a70de1">
+    <div class="org-src-container">
+      <pre class="src src-PHP">
 $role_has_api         = app(ApiForRoleRepository::class)-&gt;get($roles_api_has_search);
         if (!$role_has_api) {
             return false;
@@ -88,275 +21,261 @@ $role_has_api         = app(ApiForRoleRepository::class)-&gt;get($roles_api_has_
 
         return true;
 </pre
-            >
-          </div>
-        </div>
-      </div>
+      >
+    </div>
+  </div>
+</div>
 
-      <div id="outline-container-org7a710ac" class="outline-3">
-        <h3 id="org7a710ac">B</h3>
-        <div class="outline-text-3" id="text-org7a710ac">
-          <div class="org-src-container">
-            <pre class="src src-PHP">
+<div id="outline-container-org1ae48fd" class="outline-3">
+  <h3 id="org1ae48fd">B</h3>
+  <div class="outline-text-3" id="text-org1ae48fd">
+    <div class="org-src-container">
+      <pre class="src src-PHP">
 return app(ApiForRoleRepository::class)-&gt;get($roles_api_filters);
 </pre
-            >
-          </div>
+      >
+    </div>
 
-          <p>
-            以上两种写法第二种明显简洁，但是我还是偏向于使用第一种。为什么呢
-            1.函数返回值尽量类型一致，这样调用的地方处理返回值比较简单，由于php为弱类型语言，可以自己在函数内进行变更
-            2.B代码片段返回值依赖了被调用的函数，这样容易给人困扰，返回值是什么
-            还要跟进去看 3.B代码不利于调试排错，
-            A代码块在增加日志时不用对已有代码进行更改，只需增加日志代码，B代码却需要修改原始代码，增加变量来进行日志
-            跟踪。 同时在使用git进行diff比较时 A 也更清晰
-          </p>
-        </div>
-      </div>
+    <p>
+      以上两种写法第二种明显简洁，但是我还是偏向于使用第一种。为什么呢
+      1.函数返回值尽量类型一致，这样调用的地方处理返回值比较简单，由于php为弱类型语言，可以自己在函数内进行变更
+      2.B代码片段返回值依赖了被调用的函数，这样容易给人困扰，返回值是什么
+      还要跟进去看 3.B代码不利于调试排错，
+      A代码块在增加日志时不用对已有代码进行更改，只需增加日志代码，B代码却需要修改原始代码，增加变量来进行日志
+      跟踪。 同时在使用git进行diff比较时 A 也更清晰
+    </p>
+  </div>
+</div>
 
-      <div id="outline-container-orgaed9ee7" class="outline-3">
-        <h3 id="orgaed9ee7">A</h3>
-        <div class="outline-text-3" id="text-orgaed9ee7">
-          <div class="org-src-container">
-            <pre class="src src-PHP">
+<div id="outline-container-orgf998dc4" class="outline-3">
+  <h3 id="orgf998dc4">A</h3>
+  <div class="outline-text-3" id="text-orgf998dc4">
+    <div class="org-src-container">
+      <pre class="src src-PHP">
 if (!$project_is_open = $this-&gt;projectIsOpen($params['project_id'])) {
             return false;
         }
 </pre
-            >
-          </div>
-        </div>
-      </div>
+      >
+    </div>
+  </div>
+</div>
 
-      <div id="outline-container-orgced13a6" class="outline-3">
-        <h3 id="orgced13a6">B</h3>
-        <div class="outline-text-3" id="text-orgced13a6">
-          <div class="org-src-container">
-            <pre class="src src-PHP">
+<div id="outline-container-orgd155dda" class="outline-3">
+  <h3 id="orgd155dda">B</h3>
+  <div class="outline-text-3" id="text-orgd155dda">
+    <div class="org-src-container">
+      <pre class="src src-PHP">
 if (!$this-&gt;projectIsOpen($params['project_id'])) {
             return false;
         }
 </pre
-            >
-          </div>
-
-          <p>
-            我更倾向于第一种，貌似化蛇添足
-          </p>
-
-          <p>
-            1.同样 第一种利于增加代码进行扩展，利于排错
-          </p>
-
-          <ol class="org-ol">
-            <li>尽量减少简写，这样排错的时候更加容易</li>
-          </ol>
-
-          <p>
-            我对王垠大神的《编程的智慧》 中提到的观点很赞同
-          </p>
-        </div>
-      </div>
-
-      <div id="outline-container-orgd91b83c" class="outline-2">
-        <h2 id="orgd91b83c">.反复推敲代码</h2>
-        <div class="outline-text-2" id="text-orgd91b83c">
-          <p>
-            代码不是一蹴而就的，灵感是星星点点，陆陆续续到来的。所以代码需要反复提炼。每当我们过段时间回头看自己代码的时候总能发现一些改进。
-            大神都这么说，作为悟性普通，能力普通的程序猿，在面对自己代码缺陷时还有什么可脸红的？
-            只要能反复推敲，不断进步就是好的。最怕的是 吝啬代码，不愿意做出改变
-          </p>
-        </div>
-      </div>
-
-      <div id="outline-container-org5297dd8" class="outline-2">
-        <h2 id="org5297dd8">.优雅的代码</h2>
-        <div class="outline-text-2" id="text-org5297dd8">
-          <p>
-            优雅的代码大体的结构上来看，就像一些整整齐齐，套在一起的盒子，井然有序，思路清晰.
-          </p>
-        </div>
-      </div>
-
-      <div id="outline-container-org7ed8b71" class="outline-2">
-        <h2 id="org7ed8b71">.写模块化的代码</h2>
-        <div class="outline-text-2" id="text-org7ed8b71"></div>
-        <div id="outline-container-org0650eb7" class="outline-3">
-          <h3 id="org0650eb7">避免写太长的函数</h3>
-          <div class="outline-text-3" id="text-org0650eb7">
-            <p>
-              要能给函数的作用起个名字，如果你没有词汇能给你的函数起名字的时候，说明这个函数可能不是个好的函数，需要警惕了
-            </p>
-          </div>
-        </div>
-
-        <div id="outline-container-org327f78a" class="outline-3">
-          <h3 id="org327f78a">制造小的工具函数</h3>
-          <div class="outline-text-3" id="text-org327f78a">
-            <p>
-              对重复常用的代码，不管有多短，都 应该提取出去做成函数。
-            </p>
-          </div>
-        </div>
-
-        <div id="outline-container-org3f92cf8" class="outline-3">
-          <h3 id="org3f92cf8">每个函数只做一件事</h3>
-        </div>
-        <div id="outline-container-org7501e55" class="outline-3">
-          <h3 id="org7501e55">避免使用全局变量和类成员</h3>
-        </div>
-      </div>
-
-      <div id="outline-container-org68eb807" class="outline-2">
-        <h2 id="org68eb807">.写可读的代码</h2>
-        <div class="outline-text-2" id="text-org68eb807">
-          <p>
-            真正的好代码是自解释的，直接看名字就知道干的啥事
-          </p>
-        </div>
-        <div id="outline-container-org63219e6" class="outline-3">
-          <h3 id="org63219e6">使用有意义的函数和变量名字</h3>
-        </div>
-        <div id="outline-container-orge7217ad" class="outline-3">
-          <h3 id="orge7217ad">局部变量应该尽量接近使用它的地方</h3>
-        </div>
-        <div id="outline-container-org8eaad28" class="outline-3">
-          <h3 id="org8eaad28">局部变量名字应该简短</h3>
-        </div>
-        <div id="outline-container-org70ea7f1" class="outline-3">
-          <h3 id="org70ea7f1">不要重用局部变量</h3>
-          <div class="outline-text-3" id="text-org70ea7f1">
-            <p>
-              这样容易造成混淆，尽量减少局部变量的作用域
-            </p>
-          </div>
-        </div>
-        <div id="outline-container-orga8123d7" class="outline-3">
-          <h3 id="orga8123d7">把复杂的逻辑提取出去，做出帮助函数</h3>
-        </div>
-        <div id="outline-container-org3d73a1d" class="outline-3">
-          <h3 id="org3d73a1d">复杂的表达式提取出去，做成中间变量。</h3>
-          <div class="outline-text-3" id="text-org3d73a1d">
-            <p>
-              由于中间变量具有意义，步骤清晰，变得很容易理解
-            </p>
-          </div>
-        </div>
-        <div id="outline-container-org4d87655" class="outline-3">
-          <h3 id="org4d87655">在合理的地方换行</h3>
-        </div>
-      </div>
-
-      <div id="outline-container-org72385ae" class="outline-2">
-        <h2 id="org72385ae">.写简单的代码</h2>
-        <div class="outline-text-2" id="text-org72385ae">
-          <p>
-            并不是语言提供什么，就一定要用上它，只用经过千锤百炼，觉得值得信赖的一套
-          </p>
-        </div>
-        <div id="outline-container-org81082cd" class="outline-3">
-          <h3 id="org81082cd">避免或减少使用自增自减表达式</h3>
-        </div>
-        <div id="outline-container-orgb6609cc" class="outline-3">
-          <h3 id="orgb6609cc">合理使用括号</h3>
-          <div class="outline-text-3" id="text-orgb6609cc">
-            <p>
-              不要盲目依赖操作符优先级
-            </p>
-          </div>
-        </div>
-        <div id="outline-container-orgdaf3739" class="outline-3">
-          <h3 id="orgdaf3739">避免使用continue 和break</h3>
-          <div class="outline-text-3" id="text-orgdaf3739"></div>
-          <div id="outline-container-orgad14fef" class="outline-4">
-            <h4 id="orgad14fef">
-              如果出现了continue
-              往往只需把continue的条件反向，就可以消除continue
-            </h4>
-          </div>
-          <div id="outline-container-org0d532bd" class="outline-4">
-            <h4 id="org0d532bd">
-              如果出现break 往往可以把break的条件合并到循环头部的终止条件里
-            </h4>
-          </div>
-          <div id="outline-container-orga9b0bf3" class="outline-4">
-            <h4 id="orga9b0bf3">
-              有时候可以把break替换成return，从而去掉break
-            </h4>
-          </div>
-          <div id="outline-container-orga36d039" class="outline-4">
-            <h4 id="orga36d039">
-              如果以上都失败，可以把循环里面复杂的部分提取出来，做成函数调用。
-            </h4>
-          </div>
-        </div>
-      </div>
-      <div id="outline-container-org4b6ea2c" class="outline-2">
-        <h2 id="org4b6ea2c">.写简单的代码</h2>
-        <div class="outline-text-2" id="text-org4b6ea2c">
-          <p>
-            要一眼能看出代码是想干嘛
-          </p>
-        </div>
-      </div>
-
-      <div id="outline-container-org23b7eec" class="outline-2">
-        <h2 id="org23b7eec">.写无懈可击的代码</h2>
-        <div class="outline-text-2" id="text-org23b7eec">
-          <p>
-            不要忽略分支，不要偷懒
-          </p>
-        </div>
-      </div>
-
-      <div id="outline-container-org6566f68" class="outline-2">
-        <h2 id="org6566f68">.正确处理异常</h2>
-      </div>
-      <div id="outline-container-org1fe8273" class="outline-2">
-        <h2 id="org1fe8273">.正确处理NULL指针</h2>
-        <div class="outline-text-2" id="text-org1fe8273"></div>
-        <div id="outline-container-orgc61f6ba" class="outline-3">
-          <h3 id="orgc61f6ba">尽量不要产生null指针</h3>
-        </div>
-        <div id="outline-container-org350cdd0" class="outline-3">
-          <h3 id="org350cdd0">不要catch NullPointerException</h3>
-        </div>
-        <div id="outline-container-org0b0f3b3" class="outline-3">
-          <h3 id="org0b0f3b3">不要把null 放进"容器数据结构"里面</h3>
-        </div>
-      </div>
-
-      <div id="outline-container-orgbc5e6be" class="outline-2">
-        <h2 id="orgbc5e6be">防止过度工程</h2>
-        <div class="outline-text-2" id="text-orgbc5e6be">
-          <p>
-            现实工程中应该看的近一点，不要被"将来"所拖垮
-          </p>
-        </div>
-        <div id="outline-container-orgc918f30" class="outline-3">
-          <h3 id="orgc918f30">
-            先把眼前的问题解决掉，解决好，再考虑将来的扩展问题。
-          </h3>
-        </div>
-        <div id="outline-container-org67062bc" class="outline-3">
-          <h3 id="org67062bc">
-            先写出可用的代码，反复推敲，再考虑是否需要重用的问题。
-          </h3>
-        </div>
-        <div id="outline-container-org8c16bcd" class="outline-3">
-          <h3 id="org8c16bcd">
-            先写出可用，简单，明显没有bug的代码，再考虑测试的问题。
-          </h3>
-        </div>
-      </div>
+      >
     </div>
-    <div id="postamble" class="status">
-      <p class="date">Date: 2021-01-31 日 00:00</p>
-      <p class="author">Author: Yorick</p>
-      <p class="date">Created: 2021-01-15 五 17:51</p>
-      <p class="validation">
-        <a href="http://validator.w3.org/check?uri=referer">Validate</a>
+
+    <p>
+      我更倾向于第一种，貌似化蛇添足
+    </p>
+
+    <p>
+      1.同样 第一种利于增加代码进行扩展，利于排错
+    </p>
+
+    <ol class="org-ol">
+      <li>尽量减少简写，这样排错的时候更加容易</li>
+    </ol>
+
+    <p>
+      我对王垠大神的《编程的智慧》 中提到的观点很赞同
+    </p>
+  </div>
+</div>
+
+<div id="outline-container-org8a37e7f" class="outline-2">
+  <h2 id="org8a37e7f">.反复推敲代码</h2>
+  <div class="outline-text-2" id="text-org8a37e7f">
+    <p>
+      代码不是一蹴而就的，灵感是星星点点，陆陆续续到来的。所以代码需要反复提炼。每当我们过段时间回头看自己代码的时候总能发现一些改进。
+      大神都这么说，作为悟性普通，能力普通的程序猿，在面对自己代码缺陷时还有什么可脸红的？
+      只要能反复推敲，不断进步就是好的。最怕的是 吝啬代码，不愿意做出改变
+    </p>
+  </div>
+</div>
+
+<div id="outline-container-orgf2b35d0" class="outline-2">
+  <h2 id="orgf2b35d0">.优雅的代码</h2>
+  <div class="outline-text-2" id="text-orgf2b35d0">
+    <p>
+      优雅的代码大体的结构上来看，就像一些整整齐齐，套在一起的盒子，井然有序，思路清晰.
+    </p>
+  </div>
+</div>
+
+<div id="outline-container-org66acd32" class="outline-2">
+  <h2 id="org66acd32">.写模块化的代码</h2>
+  <div class="outline-text-2" id="text-org66acd32"></div>
+  <div id="outline-container-org908540a" class="outline-3">
+    <h3 id="org908540a">避免写太长的函数</h3>
+    <div class="outline-text-3" id="text-org908540a">
+      <p>
+        要能给函数的作用起个名字，如果你没有词汇能给你的函数起名字的时候，说明这个函数可能不是个好的函数，需要警惕了
       </p>
     </div>
-  </body>
-</html>
+  </div>
+
+  <div id="outline-container-orgbc48e2b" class="outline-3">
+    <h3 id="orgbc48e2b">制造小的工具函数</h3>
+    <div class="outline-text-3" id="text-orgbc48e2b">
+      <p>
+        对重复常用的代码，不管有多短，都 应该提取出去做成函数。
+      </p>
+    </div>
+  </div>
+
+  <div id="outline-container-org93809b0" class="outline-3">
+    <h3 id="org93809b0">每个函数只做一件事</h3>
+  </div>
+  <div id="outline-container-org64d1593" class="outline-3">
+    <h3 id="org64d1593">避免使用全局变量和类成员</h3>
+  </div>
+</div>
+
+<div id="outline-container-orge80e5fe" class="outline-2">
+  <h2 id="orge80e5fe">.写可读的代码</h2>
+  <div class="outline-text-2" id="text-orge80e5fe">
+    <p>
+      真正的好代码是自解释的，直接看名字就知道干的啥事
+    </p>
+  </div>
+  <div id="outline-container-org42e8790" class="outline-3">
+    <h3 id="org42e8790">使用有意义的函数和变量名字</h3>
+  </div>
+  <div id="outline-container-org32aa43c" class="outline-3">
+    <h3 id="org32aa43c">局部变量应该尽量接近使用它的地方</h3>
+  </div>
+  <div id="outline-container-orge9b71e7" class="outline-3">
+    <h3 id="orge9b71e7">局部变量名字应该简短</h3>
+  </div>
+  <div id="outline-container-org54a3741" class="outline-3">
+    <h3 id="org54a3741">不要重用局部变量</h3>
+    <div class="outline-text-3" id="text-org54a3741">
+      <p>
+        这样容易造成混淆，尽量减少局部变量的作用域
+      </p>
+    </div>
+  </div>
+  <div id="outline-container-org8ba1830" class="outline-3">
+    <h3 id="org8ba1830">把复杂的逻辑提取出去，做出帮助函数</h3>
+  </div>
+  <div id="outline-container-org30a520b" class="outline-3">
+    <h3 id="org30a520b">复杂的表达式提取出去，做成中间变量。</h3>
+    <div class="outline-text-3" id="text-org30a520b">
+      <p>
+        由于中间变量具有意义，步骤清晰，变得很容易理解
+      </p>
+    </div>
+  </div>
+  <div id="outline-container-org38e960b" class="outline-3">
+    <h3 id="org38e960b">在合理的地方换行</h3>
+  </div>
+</div>
+
+<div id="outline-container-org3e95a43" class="outline-2">
+  <h2 id="org3e95a43">.写简单的代码</h2>
+  <div class="outline-text-2" id="text-org3e95a43">
+    <p>
+      并不是语言提供什么，就一定要用上它，只用经过千锤百炼，觉得值得信赖的一套
+    </p>
+  </div>
+  <div id="outline-container-orgc6e903e" class="outline-3">
+    <h3 id="orgc6e903e">避免或减少使用自增自减表达式</h3>
+  </div>
+  <div id="outline-container-orgc82633e" class="outline-3">
+    <h3 id="orgc82633e">合理使用括号</h3>
+    <div class="outline-text-3" id="text-orgc82633e">
+      <p>
+        不要盲目依赖操作符优先级
+      </p>
+    </div>
+  </div>
+  <div id="outline-container-orgfe7b7a4" class="outline-3">
+    <h3 id="orgfe7b7a4">避免使用continue 和break</h3>
+    <div class="outline-text-3" id="text-orgfe7b7a4"></div>
+    <div id="outline-container-orge7fe708" class="outline-4">
+      <h4 id="orge7fe708">
+        如果出现了continue 往往只需把continue的条件反向，就可以消除continue
+      </h4>
+    </div>
+    <div id="outline-container-org466cad4" class="outline-4">
+      <h4 id="org466cad4">
+        如果出现break 往往可以把break的条件合并到循环头部的终止条件里
+      </h4>
+    </div>
+    <div id="outline-container-org4ae3985" class="outline-4">
+      <h4 id="org4ae3985">有时候可以把break替换成return，从而去掉break</h4>
+    </div>
+    <div id="outline-container-org23fc819" class="outline-4">
+      <h4 id="org23fc819">
+        如果以上都失败，可以把循环里面复杂的部分提取出来，做成函数调用。
+      </h4>
+    </div>
+  </div>
+</div>
+<div id="outline-container-orgc6cac5c" class="outline-2">
+  <h2 id="orgc6cac5c">.写简单的代码</h2>
+  <div class="outline-text-2" id="text-orgc6cac5c">
+    <p>
+      要一眼能看出代码是想干嘛
+    </p>
+  </div>
+</div>
+
+<div id="outline-container-org0011a8f" class="outline-2">
+  <h2 id="org0011a8f">.写无懈可击的代码</h2>
+  <div class="outline-text-2" id="text-org0011a8f">
+    <p>
+      不要忽略分支，不要偷懒
+    </p>
+  </div>
+</div>
+
+<div id="outline-container-org0cb104b" class="outline-2">
+  <h2 id="org0cb104b">.正确处理异常</h2>
+</div>
+<div id="outline-container-org35dfae3" class="outline-2">
+  <h2 id="org35dfae3">.正确处理NULL指针</h2>
+  <div class="outline-text-2" id="text-org35dfae3"></div>
+  <div id="outline-container-org2b7d303" class="outline-3">
+    <h3 id="org2b7d303">尽量不要产生null指针</h3>
+  </div>
+  <div id="outline-container-org5c99774" class="outline-3">
+    <h3 id="org5c99774">不要catch NullPointerException</h3>
+  </div>
+  <div id="outline-container-orgb456bb0" class="outline-3">
+    <h3 id="orgb456bb0">不要把null 放进"容器数据结构"里面</h3>
+  </div>
+</div>
+
+<div id="outline-container-org6b36fe1" class="outline-2">
+  <h2 id="org6b36fe1">防止过度工程</h2>
+  <div class="outline-text-2" id="text-org6b36fe1">
+    <p>
+      现实工程中应该看的近一点，不要被"将来"所拖垮
+    </p>
+  </div>
+  <div id="outline-container-org83adfac" class="outline-3">
+    <h3 id="org83adfac">
+      先把眼前的问题解决掉，解决好，再考虑将来的扩展问题。
+    </h3>
+  </div>
+  <div id="outline-container-orga131192" class="outline-3">
+    <h3 id="orga131192">
+      先写出可用的代码，反复推敲，再考虑是否需要重用的问题。
+    </h3>
+  </div>
+  <div id="outline-container-org71bc27d" class="outline-3">
+    <h3 id="org71bc27d">
+      先写出可用，简单，明显没有bug的代码，再考虑测试的问题。
+    </h3>
+  </div>
+</div>
