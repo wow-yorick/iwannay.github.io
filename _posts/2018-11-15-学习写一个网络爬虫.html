@@ -1,12 +1,12 @@
-<div id="outline-container-orge6b85b5" class="outline-2">
-  <h2 id="orge6b85b5">
+<div id="outline-container-org9a5b097" class="outline-2">
+  <h2 id="org9a5b097">
     <span class="section-number-2">1</span> 来源
     <a href="https://github.com/gopcp">go并发编程实例</a>
   </h2>
 </div>
 
-<div id="outline-container-org04a61d3" class="outline-2">
-  <h2 id="org04a61d3">
+<div id="outline-container-orgb169bf4" class="outline-2">
+  <h2 id="orgb169bf4">
     <span class="section-number-2">2</span> 起始于首次请求的数据流程图
   </h2>
   <div class="outline-text-2" id="text-2">
@@ -16,8 +16,8 @@
   </div>
 </div>
 
-<div id="outline-container-org4373b7f" class="outline-2">
-  <h2 id="org4373b7f">
+<div id="outline-container-org454ec67" class="outline-2">
+  <h2 id="org454ec67">
     <span class="section-number-2">3</span> 调度器与各处理模块的关系
   </h2>
   <div class="outline-text-2" id="text-3">
@@ -27,8 +27,8 @@
   </div>
 </div>
 
-<div id="outline-container-org68da8fb" class="outline-2">
-  <h2 id="org68da8fb"><span class="section-number-2">4</span> 基本数据结构</h2>
+<div id="outline-container-org68bf01e" class="outline-2">
+  <h2 id="org68bf01e"><span class="section-number-2">4</span> 基本数据结构</h2>
   <div class="outline-text-2" id="text-4">
     <p>
       <code>Request</code> 数据的请求 <code>Response</code> 数据的响应
@@ -38,11 +38,11 @@
   </div>
 </div>
 
-<div id="outline-container-orga37375a" class="outline-2">
-  <h2 id="orga37375a"><span class="section-number-2">5</span> 架构设计</h2>
+<div id="outline-container-orga3eca94" class="outline-2">
+  <h2 id="orga3eca94"><span class="section-number-2">5</span> 架构设计</h2>
   <div class="outline-text-2" id="text-5"></div>
-  <div id="outline-container-orgdac6b55" class="outline-4">
-    <h4 id="orgdac6b55">
+  <div id="outline-container-orgc17e4a3" class="outline-4">
+    <h4 id="orgc17e4a3">
       <span class="section-number-4">5.0.1</span> 处理模块的抽象接口声明
       <code>Module</code>
     </h4>
@@ -63,8 +63,8 @@
     </div>
   </div>
 
-  <div id="outline-container-org37b6f94" class="outline-4">
-    <h4 id="org37b6f94">
+  <div id="outline-container-org0c22dd0" class="outline-4">
+    <h4 id="org0c22dd0">
       <span class="section-number-4">5.0.2</span> 序列号生成器的接口设计
       <code>SNGenertor</code>
     </h4>
@@ -84,101 +84,100 @@
     </div>
   </div>
 
-  <div id="outline-container-org797f926" class="outline-3">
-    <h3 id="org797f926"><span class="section-number-3">5.1</span> 下载器</h3>
+  <div id="outline-container-org072855c" class="outline-3">
+    <h3 id="org072855c"><span class="section-number-3">5.1</span> 下载器</h3>
     <div class="outline-text-3" id="text-5-1">
       <div class="org-src-container">
-        <pre class="src src-go">
-type Downloader interface {
+        <pre
+          class="src src-go"
+        ><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Downloader</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
 Module
-Download(req *Request) (*Response, error)
-}
-</pre
-        >
+<span style="color: #c678dd;">Download</span><span style="color: #c678dd;">(</span><span style="color: #dcaeea;">req</span> *<span style="color: #ECBE7B;">Request</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span>*<span style="color: #ECBE7B;">Response</span>, <span style="color: #ECBE7B;">error</span><span style="color: #c678dd;">)</span>
+<span style="color: #51afef;">}</span>
+</pre>
       </div>
     </div>
   </div>
-  <div id="outline-container-org0e13dfa" class="outline-3">
-    <h3 id="org0e13dfa"><span class="section-number-3">5.2</span> 分析器</h3>
+  <div id="outline-container-orgaf6864f" class="outline-3">
+    <h3 id="orgaf6864f"><span class="section-number-3">5.2</span> 分析器</h3>
     <div class="outline-text-3" id="text-5-2">
       <div class="org-src-container">
         <pre class="src src-go">
-type ParseResponse func(httpResp *http.Response, respDepth uint32) ([]Data, []error)
+<span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">ParseResponse</span> <span style="color: #51afef;">func</span><span style="color: #51afef;">(</span><span style="color: #dcaeea;">httpResp</span> *<span style="color: #ECBE7B;">http.Response</span>, <span style="color: #dcaeea;">respDepth</span> <span style="color: #ECBE7B;">uint32</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">(</span><span style="color: #c678dd;">[]</span><span style="color: #ECBE7B;">Data</span>, <span style="color: #c678dd;">[]</span><span style="color: #ECBE7B;">error</span><span style="color: #51afef;">)</span>
 
-type Analyzer interface {
+<span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Analyzer</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
 Module
-//返回当前分析器使用的响应解析函数的列表
-RespParsers() []ParseResponse
-//响应需要分别经过若干响应解析函数的处理，然后合并结果
-Analyze(resp *Response) ([]Data, []error)
-}
-</pre
-        >
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#36820;&#22238;&#24403;&#21069;&#20998;&#26512;&#22120;&#20351;&#29992;&#30340;&#21709;&#24212;&#35299;&#26512;&#20989;&#25968;&#30340;&#21015;&#34920;</span>
+<span style="color: #c678dd;">RespParsers</span><span style="color: #c678dd;">()</span> <span style="color: #c678dd;">[]</span><span style="color: #ECBE7B;">ParseResponse</span>
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#21709;&#24212;&#38656;&#35201;&#20998;&#21035;&#32463;&#36807;&#33509;&#24178;&#21709;&#24212;&#35299;&#26512;&#20989;&#25968;&#30340;&#22788;&#29702;&#65292;&#28982;&#21518;&#21512;&#24182;&#32467;&#26524;</span>
+<span style="color: #c678dd;">Analyze</span><span style="color: #c678dd;">(</span><span style="color: #dcaeea;">resp</span> *<span style="color: #ECBE7B;">Response</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #98be65;">[]</span><span style="color: #ECBE7B;">Data</span>, <span style="color: #98be65;">[]</span><span style="color: #ECBE7B;">error</span><span style="color: #c678dd;">)</span>
+<span style="color: #51afef;">}</span>
+</pre>
       </div>
     </div>
   </div>
-  <div id="outline-container-org419fb3e" class="outline-3">
-    <h3 id="org419fb3e">
+  <div id="outline-container-org86eb783" class="outline-3">
+    <h3 id="org86eb783">
       <span class="section-number-3">5.3</span> 条目处理管道
     </h3>
     <div class="outline-text-3" id="text-5-3">
       <div class="org-src-container">
-        <pre class="src src-go">
-type Pipeline interface {
+        <pre
+          class="src src-go"
+        ><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Pipeline</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
 Module
 
-//返回当前条目处理管道使用的条目处理函数列表
-ItemProcessors() []ProcessItem
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#36820;&#22238;&#24403;&#21069;&#26465;&#30446;&#22788;&#29702;&#31649;&#36947;&#20351;&#29992;&#30340;&#26465;&#30446;&#22788;&#29702;&#20989;&#25968;&#21015;&#34920;</span>
+<span style="color: #c678dd;">ItemProcessors</span><span style="color: #c678dd;">()</span> <span style="color: #c678dd;">[]</span><span style="color: #ECBE7B;">ProcessItem</span>
 
-//向条目处理管道发送条目
-Send(item Item) []error
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#21521;&#26465;&#30446;&#22788;&#29702;&#31649;&#36947;&#21457;&#36865;&#26465;&#30446;</span>
+<span style="color: #c678dd;">Send</span><span style="color: #c678dd;">(</span><span style="color: #dcaeea;">item</span> <span style="color: #ECBE7B;">Item</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">[]</span><span style="color: #ECBE7B;">error</span>
 
-//是否遇到失败终止
-FailFast() bool
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#26159;&#21542;&#36935;&#21040;&#22833;&#36133;&#32456;&#27490;</span>
+<span style="color: #c678dd;">FailFast</span><span style="color: #c678dd;">()</span> <span style="color: #ECBE7B;">bool</span>
 
-//设置是否快速失败
-SetFailFast(failFast bool)
-}
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#35774;&#32622;&#26159;&#21542;&#24555;&#36895;&#22833;&#36133;</span>
+<span style="color: #c678dd;">SetFailFast</span><span style="color: #c678dd;">(</span><span style="color: #dcaeea;">failFast</span> <span style="color: #ECBE7B;">bool</span><span style="color: #c678dd;">)</span>
+<span style="color: #51afef;">}</span>
 
-type ProcessItem func(item Item) (result Item, err error)
-</pre
-        >
+<span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">ProcessItem</span> <span style="color: #51afef;">func</span><span style="color: #51afef;">(</span><span style="color: #dcaeea;">item</span> <span style="color: #ECBE7B;">Item</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">(</span><span style="color: #dcaeea;">result</span> <span style="color: #ECBE7B;">Item</span>, <span style="color: #dcaeea;">err</span> <span style="color: #ECBE7B;">error</span><span style="color: #51afef;">)</span>
+</pre>
       </div>
     </div>
   </div>
-  <div id="outline-container-org2b4d6c3" class="outline-3">
-    <h3 id="org2b4d6c3"><span class="section-number-3">5.4</span> 调度器</h3>
+  <div id="outline-container-org5b9bb62" class="outline-3">
+    <h3 id="org5b9bb62"><span class="section-number-3">5.4</span> 调度器</h3>
     <div class="outline-text-3" id="text-5-4">
       <div class="org-src-container">
-        <pre class="src src-go">
-type Scheduler interface {
-Init(requestArgs RequestArgs, dataArgs DataArgs, moduleArgs ModuleArgs) (err error)
+        <pre
+          class="src src-go"
+        ><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Scheduler</span> <span style="color: #51afef;">interface</span> <span style="color: #51afef;">{</span>
+<span style="color: #c678dd;">Init</span><span style="color: #c678dd;">(</span><span style="color: #dcaeea;">requestArgs</span> <span style="color: #ECBE7B;">RequestArgs</span>, <span style="color: #dcaeea;">dataArgs</span> <span style="color: #ECBE7B;">DataArgs</span>, <span style="color: #dcaeea;">moduleArgs</span> <span style="color: #ECBE7B;">ModuleArgs</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">err</span> <span style="color: #ECBE7B;">error</span><span style="color: #c678dd;">)</span>
 
-//以首次请求为起点开始爬取
-Start(firstHTTPReq *http.Request) (err error)
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#20197;&#39318;&#27425;&#35831;&#27714;&#20026;&#36215;&#28857;&#24320;&#22987;&#29228;&#21462;</span>
+<span style="color: #c678dd;">Start</span><span style="color: #c678dd;">(</span><span style="color: #dcaeea;">firstHTTPReq</span> *<span style="color: #ECBE7B;">http.Request</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">err</span> <span style="color: #ECBE7B;">error</span><span style="color: #c678dd;">)</span>
 
-Stop()(err error)
+<span style="color: #c678dd;">Stop</span><span style="color: #c678dd;">()(</span>err <span style="color: #ECBE7B;">error</span><span style="color: #c678dd;">)</span>
 
-//获取调度器状态
-Status()Status
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#33719;&#21462;&#35843;&#24230;&#22120;&#29366;&#24577;</span>
+<span style="color: #c678dd;">Status</span><span style="color: #c678dd;">()</span>Status
 
-//接受错误的通道 若结果为nil 说明通道不可用或调度器已停止
-ErrorChan() &lt;-chan error
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#25509;&#21463;&#38169;&#35823;&#30340;&#36890;&#36947; &#33509;&#32467;&#26524;&#20026;nil &#35828;&#26126;&#36890;&#36947;&#19981;&#21487;&#29992;&#25110;&#35843;&#24230;&#22120;&#24050;&#20572;&#27490;</span>
+<span style="color: #c678dd;">ErrorChan</span><span style="color: #c678dd;">()</span> &lt;-<span style="color: #51afef;">chan</span> <span style="color: #ECBE7B;">error</span>
 
-// 判断所有处理模块是否都处于空闲状态
-Idle() bool
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#21028;&#26029;&#25152;&#26377;&#22788;&#29702;&#27169;&#22359;&#26159;&#21542;&#37117;&#22788;&#20110;&#31354;&#38386;&#29366;&#24577;</span>
+<span style="color: #c678dd;">Idle</span><span style="color: #c678dd;">()</span> <span style="color: #ECBE7B;">bool</span>
 
-//获取摘要实例
-Summary() SchedSummary
-}
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#33719;&#21462;&#25688;&#35201;&#23454;&#20363;</span>
+<span style="color: #c678dd;">Summary</span><span style="color: #c678dd;">()</span> <span style="color: #ECBE7B;">SchedSummary</span>
+<span style="color: #51afef;">}</span>
 
-</pre
-        >
+</pre>
       </div>
     </div>
 
-    <div id="outline-container-orga06158f" class="outline-4">
-      <h4 id="orga06158f">
+    <div id="outline-container-org420b349" class="outline-4">
+      <h4 id="org420b349">
         <span class="section-number-4">5.4.1</span> 调度器的状态转换
       </h4>
       <div class="outline-text-4" id="text-5-4-1">

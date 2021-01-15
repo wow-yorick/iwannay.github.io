@@ -1,114 +1,114 @@
-<div id="outline-container-org00f7c47" class="outline-2">
-  <h2 id="org00f7c47">
+<div id="outline-container-org5d6095d" class="outline-2">
+  <h2 id="org5d6095d">
     <span class="section-number-2">1</span> <code>&amp;</code> 位与
   </h2>
   <div class="outline-text-2" id="text-1"></div>
-  <div id="outline-container-orgb9dc579" class="outline-3">
-    <h3 id="orgb9dc579">
+  <div id="outline-container-orgd255214" class="outline-3">
+    <h3 id="orgd255214">
       <span class="section-number-3">1.1</span> 给定2个操作数a,b 当且仅当 a=b=1
       时结果为1 否则为0
     </h3>
   </div>
-  <div id="outline-container-orgd500132" class="outline-3">
-    <h3 id="orgd500132">
+  <div id="outline-container-org64d9dde" class="outline-3">
+    <h3 id="org64d9dde">
       <span class="section-number-3">1.2</span> 可用于将整数的指定位清零
     </h3>
     <div class="outline-text-3" id="text-1-2">
       <div class="org-src-container">
-        <pre class="src src-go">
-func main() {
-    var x uint8 = 0xAC // x=10101100
-    x &amp;= 0xF0 // x= 10100000
-}
-</pre
-        >
+        <pre
+          class="src src-go"
+        ><span style="color: #51afef;">func</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+    <span style="color: #51afef;">var</span> <span style="color: #dcaeea;">x</span> <span style="color: #ECBE7B;">uint8</span> = 0xAC <span style="color: #5B6268;">// </span><span style="color: #5B6268;">x=10101100</span>
+    x &amp;= 0xF0 <span style="color: #5B6268;">// </span><span style="color: #5B6268;">x= 10100000</span>
+<span style="color: #51afef;">}</span>
+</pre>
       </div>
     </div>
   </div>
-  <div id="outline-container-org6ad7b61" class="outline-3">
-    <h3 id="org6ad7b61">
+  <div id="outline-container-orgf790d32" class="outline-3">
+    <h3 id="orgf790d32">
       <span class="section-number-3">1.3</span> 通过
       <code>&amp;</code>
       判断一个数为奇数(<code>odd</code>)还是偶数(<code>even</code>)
     </h3>
     <div class="outline-text-3" id="text-1-3"></div>
-    <div id="outline-container-org8732dd6" class="outline-4">
-      <h4 id="org8732dd6">
+    <div id="outline-container-org5b41cb6" class="outline-4">
+      <h4 id="org5b41cb6">
         <span class="section-number-4">1.3.1</span> 将数字和值1做
         <code>&amp;</code> 如果结果是1,就说明原来的数字是奇数
       </h4>
     </div>
   </div>
 </div>
-<div id="outline-container-orgae84a42" class="outline-2">
-  <h2 id="orgae84a42">
+<div id="outline-container-org9ed45cb" class="outline-2">
+  <h2 id="org9ed45cb">
     <span class="section-number-2">2</span> <code>|</code> 位或
   </h2>
   <div class="outline-text-2" id="text-2"></div>
-  <div id="outline-container-org9c9327e" class="outline-3">
-    <h3 id="org9c9327e">
+  <div id="outline-container-org6b45c6f" class="outline-3">
+    <h3 id="org6b45c6f">
       <span class="section-number-3">2.1</span> 给定两个操作数 a,b 当且仅当a
       和b都为0时结果为0 否则为 1
     </h3>
   </div>
-  <div id="outline-container-org29a99d9" class="outline-3">
-    <h3 id="org29a99d9">
+  <div id="outline-container-orgb32d6ad" class="outline-3">
+    <h3 id="orgb32d6ad">
       <span class="section-number-3">2.2</span> 可以将一个整数中指定位置为1
     </h3>
   </div>
-  <div id="outline-container-org3e97416" class="outline-3">
-    <h3 id="org3e97416">
+  <div id="outline-container-org3c29a11" class="outline-3">
+    <h3 id="org3c29a11">
       <span class="section-number-3">2.3</span> 对一个数字使用掩码技术
     </h3>
   </div>
-  <div id="outline-container-orga4fa8e9" class="outline-3">
-    <h3 id="orga4fa8e9">
+  <div id="outline-container-orgd3b31ff" class="outline-3">
+    <h3 id="orgd3b31ff">
       <span class="section-number-3">2.4</span> 使用位作为配置信息如 linux的权限
       1,2,4
     </h3>
   </div>
 </div>
 
-<div id="outline-container-orgc779a4d" class="outline-2">
-  <h2 id="orgc779a4d">
+<div id="outline-container-orgbf14175" class="outline-2">
+  <h2 id="orgbf14175">
     <span class="section-number-2">3</span> <code>^</code> 操作符
   </h2>
   <div class="outline-text-2" id="text-3"></div>
-  <div id="outline-container-org4ea1d68" class="outline-3">
-    <h3 id="org4ea1d68">
+  <div id="outline-container-org810f617" class="outline-3">
+    <h3 id="org810f617">
       <span class="section-number-3">3.1</span> 给定两个操作数 a,b 当且仅当
       a!=b时 结果返回1 否则返回0
     </h3>
   </div>
-  <div id="outline-container-org0a523e3" class="outline-3">
-    <h3 id="org0a523e3">
+  <div id="outline-container-orgc83db74" class="outline-3">
+    <h3 id="orgc83db74">
       <span class="section-number-3">3.2</span>
       可以用来切换指定位上的值(数字进行翻转 0变为1 1变为0)
     </h3>
     <div class="outline-text-3" id="text-3-2">
       <div class="org-src-container">
-        <pre class="src src-go">
- func main() {
-    var a uint16 = 0xCEFF
-    a ^= 0xFF00 // same a = a ^ 0xFF00
-}
-// a = 0xCEFF   (11001110 11111111)
-// a ^=0xFF00   (00110001 11111111)
-</pre
-        >
+        <pre
+          class="src src-go"
+        > <span style="color: #51afef;">func</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+    <span style="color: #51afef;">var</span> <span style="color: #dcaeea;">a</span> <span style="color: #ECBE7B;">uint16</span> = 0xCEFF
+    a ^= 0xFF00 <span style="color: #5B6268;">// </span><span style="color: #5B6268;">same a = a ^ 0xFF00</span>
+<span style="color: #51afef;">}</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">a = 0xCEFF   (11001110 11111111)</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">a ^=0xFF00   (00110001 11111111)</span>
+</pre>
       </div>
     </div>
   </div>
 
-  <div id="outline-container-org246d76b" class="outline-3">
-    <h3 id="org246d76b">
+  <div id="outline-container-orgafbb992" class="outline-3">
+    <h3 id="orgafbb992">
       <span class="section-number-3">3.3</span> 比较两个数字正负号是否相同 如果
       <code>(a ^ b) &gt;= 0</code> 那么a和b同号,如果
       <code>(a ^ b) &lt; 0</code> 那么a和b异号
     </h3>
   </div>
-  <div id="outline-container-org782ffb1" class="outline-3">
-    <h3 id="org782ffb1">
+  <div id="outline-container-org6b7240c" class="outline-3">
+    <h3 id="org6b7240c">
       <span class="section-number-3">3.4</span> 使用 <code>^</code> 作为位非操作
       go中 <code>^x=1^x</code> 将会反转x的位,可以通过 <code>^a</code> 来计算变量
       <code>a</code> 的补码
@@ -116,13 +116,13 @@ func main() {
   </div>
 </div>
 
-<div id="outline-container-org4d65b98" class="outline-2">
-  <h2 id="org4d65b98">
+<div id="outline-container-org748a5f5" class="outline-2">
+  <h2 id="org748a5f5">
     <span class="section-number-2">4</span> <code>&amp;^</code> 运算符
   </h2>
   <div class="outline-text-2" id="text-4"></div>
-  <div id="outline-container-org23d822e" class="outline-3">
-    <h3 id="org23d822e">
+  <div id="outline-container-org31cb051" class="outline-3">
+    <h3 id="org31cb051">
       <span class="section-number-3">4.1</span> <code>&amp;^</code> 运算符叫做
       <code>AND NOT</code> 。它是一个 使用 <code>AND</code> 后，再使用
       <code>NOT</code> 操作的简写
@@ -138,8 +138,8 @@ AND_NOT(a, b) = AND(a, NOT(b))
       >
     </div>
   </div>
-  <div id="outline-container-org6c1e79c" class="outline-3">
-    <h3 id="org6c1e79c">
+  <div id="outline-container-org17aecd2" class="outline-3">
+    <h3 id="org17aecd2">
       <span class="section-number-3">4.2</span> 如果第二个操作符返回1
       那么该位将会清零
     </h3>
@@ -155,14 +155,14 @@ AND_NOT(a, 0) = a;
   </div>
 </div>
 
-<div id="outline-container-orge5080ee" class="outline-2">
-  <h2 id="orge5080ee">
+<div id="outline-container-org89a7c23" class="outline-2">
+  <h2 id="org89a7c23">
     <span class="section-number-2">5</span> <code>&lt;&lt;</code> 和
     <code>&gt;&gt;</code> 运算符
   </h2>
   <div class="outline-text-2" id="text-5"></div>
-  <div id="outline-container-org1e8933b" class="outline-3">
-    <h3 id="org1e8933b">
+  <div id="outline-container-orgc19583b" class="outline-3">
+    <h3 id="orgc19583b">
       <span class="section-number-3">5.1</span> 用来代表左移或者右移运算
     </h3>
     <div class="outline-text-3" id="text-5-1">
@@ -174,26 +174,26 @@ AND_NOT(a, 0) = a;
       </div>
 
       <div class="org-src-container">
-        <pre class="src src-go">
-func main() {
-    var a int8 = 3
-    fmt.Printf("%08b\n", a)
-    fmt.Printf("%08b\n", a&lt;&lt;1)
-    fmt.Printf("%08b\n", a&lt;&lt;2)
-    fmt.Printf("%08b\n", a&lt;&lt;3)
-}
-// prints:
-//00000011
-//00000110
-//00001100
-//00011000
-</pre
-        >
+        <pre
+          class="src src-go"
+        ><span style="color: #51afef;">func</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+    <span style="color: #51afef;">var</span> <span style="color: #dcaeea;">a</span> <span style="color: #ECBE7B;">int8</span> = 3
+    fmt.<span style="color: #c678dd;">Printf</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"%08b\n"</span>, a<span style="color: #c678dd;">)</span>
+    fmt.<span style="color: #c678dd;">Printf</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"%08b\n"</span>, a&lt;&lt;1<span style="color: #c678dd;">)</span>
+    fmt.<span style="color: #c678dd;">Printf</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"%08b\n"</span>, a&lt;&lt;2<span style="color: #c678dd;">)</span>
+    fmt.<span style="color: #c678dd;">Printf</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"%08b\n"</span>, a&lt;&lt;3<span style="color: #c678dd;">)</span>
+<span style="color: #51afef;">}</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">prints:</span>
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">00000011</span>
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">00000110</span>
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">00001100</span>
+<span style="color: #5B6268;">//</span><span style="color: #5B6268;">00011000</span>
+</pre>
       </div>
     </div>
   </div>
-  <div id="outline-container-org7fcc1db" class="outline-3">
-    <h3 id="org7fcc1db">
+  <div id="outline-container-org6405c41" class="outline-3">
+    <h3 id="org6405c41">
       <span class="section-number-3">5.2</span> 每次的位移都是乘或者除2次幂
     </h3>
   </div>

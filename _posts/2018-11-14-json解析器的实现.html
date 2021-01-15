@@ -4,32 +4,30 @@
 </p>
 
 <div class="org-src-container">
-  <pre class="src src-json">
-{"姓名": "张三", "年龄": "18"}
-</pre
-  >
+  <pre
+    class="src src-json"
+  ><span style="color: #51afef;">{</span><span style="color: #51afef;">"&#22995;&#21517;"</span>: <span style="color: #98be65;">"&#24352;&#19977;"</span>, <span style="color: #51afef;">"&#24180;&#40836;"</span>: <span style="color: #98be65;">"18"</span><span style="color: #51afef;">}</span>
+</pre>
 </div>
 
 <div class="org-src-container">
-  <pre class="src src-json">
-[
-    {
-    "姓名": "张三",
-    "年龄":"18"
-    },
+  <pre class="src src-json"><span style="color: #51afef;">[</span>
+    <span style="color: #c678dd;">{</span>
+    <span style="color: #51afef;">"&#22995;&#21517;"</span>: <span style="color: #98be65;">"&#24352;&#19977;"</span>,
+    <span style="color: #51afef;">"&#24180;&#40836;"</span>:<span style="color: #98be65;">"18"</span>
+    <span style="color: #c678dd;">}</span>,
 
-    {
-    "姓名": "里斯",
-    "年龄":"19"
+    <span style="color: #c678dd;">{</span>
+    <span style="color: #51afef;">"&#22995;&#21517;"</span>: <span style="color: #98be65;">"&#37324;&#26031;"</span>,
+    <span style="color: #51afef;">"&#24180;&#40836;"</span>:<span style="color: #98be65;">"19"</span>
 
-    }
-]
-</pre
-  >
+    <span style="color: #c678dd;">}</span>
+<span style="color: #51afef;">]</span>
+</pre>
 </div>
 
-<div id="outline-container-org1dda2b5" class="outline-2">
-  <h2 id="org1dda2b5">
+<div id="outline-container-org8cc6627" class="outline-2">
+  <h2 id="org8cc6627">
     <span class="section-number-2">1</span> json 包含的数据类型
   </h2>
   <div class="outline-text-2" id="text-1">
@@ -86,8 +84,8 @@
   </div>
 </div>
 
-<div id="outline-container-orgcc0619f" class="outline-2">
-  <h2 id="orgcc0619f">
+<div id="outline-container-orge8d680a" class="outline-2">
+  <h2 id="orge8d680a">
     <span class="section-number-2">2</span> json 中格式的定义
   </h2>
   <div class="outline-text-2" id="text-2">
@@ -169,8 +167,8 @@
   </div>
 </div>
 
-<div id="outline-container-org28e66ad" class="outline-2">
-  <h2 id="org28e66ad"><span class="section-number-2">3</span> 解析思路</h2>
+<div id="outline-container-org35d8616" class="outline-2">
+  <h2 id="org35d8616"><span class="section-number-2">3</span> 解析思路</h2>
   <div class="outline-text-2" id="text-3">
     <p>
       由于JSON的Object和Array可以嵌套，在读取过程中，使用一个栈来存储Object和Array是必须的。每当我们读到一个
