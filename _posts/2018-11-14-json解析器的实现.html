@@ -1,0 +1,208 @@
+<p>
+  &#x2014; layout: post title: json解析器的实现 &#x2014;
+</p>
+
+<p>
+  json
+  是一种轻量级的数据交换格式，易于阅读和编写，也很容易被机器解析。一系列的优点使它在众多的数据交换格式中脱颖而出。是目前web开发中最受喜爱的数据交互格式
+</p>
+
+<div class="org-src-container">
+  <pre class="src src-json">
+{"姓名": "张三", "年龄": "18"}
+</pre
+  >
+</div>
+
+<div class="org-src-container">
+  <pre class="src src-json">
+[
+    {
+    "姓名": "张三",
+    "年龄":"18"
+    },
+
+    {
+    "姓名": "里斯",
+    "年龄":"19"
+
+    }
+]
+</pre
+  >
+</div>
+
+<div id="outline-container-org9e74140" class="outline-2">
+  <h2 id="org9e74140">
+    <span class="section-number-2">1</span> json 包含的数据类型
+  </h2>
+  <div class="outline-text-2" id="text-1">
+    <table
+      border="2"
+      cellspacing="0"
+      cellpadding="6"
+      rules="groups"
+      frame="hsides"
+    >
+      <colgroup>
+        <col class="org-left" />
+
+        <col class="org-left" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col" class="org-left">JSON</th>
+          <th scope="col" class="org-left">JAVA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="org-left">string</td>
+          <td class="org-left">Java中的String</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">number</td>
+          <td class="org-left">Java中的Long或Double</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">true/false</td>
+          <td class="org-left">Java中的Boolean</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">null</td>
+          <td class="org-left">Java中的null</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">[array]</td>
+          <td class="org-left">Java中的List或Object[]</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">{“key”:”value”}</td>
+          <td class="org-left">Java中的Map</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="outline-container-orgd11124a" class="outline-2">
+  <h2 id="orgd11124a">
+    <span class="section-number-2">2</span> json 中格式的定义
+  </h2>
+  <div class="outline-text-2" id="text-2">
+    <table
+      border="2"
+      cellspacing="0"
+      cellpadding="6"
+      rules="groups"
+      frame="hsides"
+    >
+      <colgroup>
+        <col class="org-left" />
+
+        <col class="org-left" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col" class="org-left">token</th>
+          <th scope="col" class="org-left">含义</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="org-left">NULL</td>
+          <td class="org-left">null</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">NUMBER</td>
+          <td class="org-left">数字</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">STRING</td>
+          <td class="org-left">字符串</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">BOOLEAN</td>
+          <td class="org-left">true/false</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">SEP<sub>COLON</sub></td>
+          <td class="org-left">:</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">SEP<sub>COMMA</sub></td>
+          <td class="org-left">,</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">BEGIN<sub>OBJECT</sub></td>
+          <td class="org-left">{</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">END<sub>OBJECT</sub></td>
+          <td class="org-left">}</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">BEGIN<sub>ARRAY</sub></td>
+          <td class="org-left">[</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">END<sub>ARRAY</sub></td>
+          <td class="org-left">]</td>
+        </tr>
+
+        <tr>
+          <td class="org-left">END<sub>DOCUMENT</sub></td>
+          <td class="org-left">表示JSON数据结束</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="outline-container-org0c663ef" class="outline-2">
+  <h2 id="org0c663ef"><span class="section-number-2">3</span> 解析思路</h2>
+  <div class="outline-text-2" id="text-3">
+    <p>
+      由于JSON的Object和Array可以嵌套，在读取过程中，使用一个栈来存储Object和Array是必须的。每当我们读到一个
+      <code>BEGIN_OBJECT</code> 时，就创建一个
+      <code>Map</code> 并压栈；每当读到一个
+      <code>BEGIN_ARRAY</code> 时，就创建一个
+      <code>List</code> 并压栈；每当读到一个 <code>END_OBJECT</code> 和
+      <code>END_ARRAY</code>
+      时，就弹出栈顶元素，并根据新的栈顶元素判断是否压栈。此外，读到Object的Key也必须压栈，读到后面的Value后将Key-Value压入栈顶的Map。
+    </p>
+
+    <p>
+      如果读到
+      <code>END_DOCUMENT</code>
+      时，栈恰好只剩下一个元素，则读取正确，将该元素返回，读取结束。如果栈剩下不止一个元素，则JSON文档格式不正确。
+    </p>
+
+    <p>
+      最后， <code>JsonReader</code> 的核心解析代码
+      <code>parse()</code> 就是负责从
+      <code>TokenReader</code>
+      中不断读取Token，根据当前状态操作，然后设定下一个Token期望的状态，如果与期望状态不符，则JSON的格式无效。起始状态被设定为
+      <code
+        >STATUS_EXPECT_SINGLE_VALUE | STATUS_EXPECT_BEGIN_OBJECT |
+        STATUS_EXPECT_BEGIN_ARRAY</code
+      >
+      ，即期望读取到单个value、 <code>{</code> 或
+      <code>[</code> 。循环的退出点是读取到 <code>END_DOCUMENT</code> 时。
+    </p>
+  </div>
+</div>
