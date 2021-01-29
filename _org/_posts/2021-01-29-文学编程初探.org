@@ -1,0 +1,72 @@
+: 文学编程希望能做到写的程序适于阅读，文档描述能遵循问题的逻辑顺序，同时不受制于编程语言的缺陷
+
+支持LaTex
+
+- Unicode References :: for instance, \alpha, \beta and \gamma.
+- Subscripts :: like Hydrogen atoms, H_2, and Water, H_{2}O.
+- Superscripts :: The mass of the sun is 1.989 x 10^30 kg.
+- Embedded Equations :: Surrounded with either single =$=, like $a^2=b$,
+or escaped parenthesis, like: \( b=\frac{1}{2} \)
+- Separated equations :: Either in double =$$= or escaped brackets, like
+this: $$ a=\frac{1}{2}\sqrt{2} $$ or this: \[ a=-\sqrt{2} \] or this:
+\begin{equation}
+x=\sqrt{b}
+\end{equation}
+
+#+OPTIONS: tex:t
+
+
+#+begin_src emacs-lisp
+  (progn
+    (directory-files ".")
+    (print "hello"))
+
+#+end_src
+
+#+RESULTS:
+: hello
+
+
+- 按下 =C-c C-c= 执行命令
+- 按下 =C-c '(单引号)= 可以以指定的mode来编辑这段代码 (利用paredit插件来编写代码)
+
+  
+* Python案例
+
+需要明确的 =return= 语句
+
+#+begin_src python
+  from os import listdir
+  return listdir(".")
+#+end_src
+
+* shell案例
+shell使用输出到标准输入的内容作为结果
+#+begin_src shell
+  ls -l
+#+end_src
+
+若按下 =C-c C-c= 没反映，需要执行 =M-x load-library <RET> ob-sh= 
+
+* 其他语言
+需要添加类似下面的配置到 =.emacs= 文件中:
+
+#+begin_src emacs-lisp
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((sh         . t)
+     (js         . t)
+     (emacs-lisp . t)
+     (perl       . t)
+     (scala      . t)
+     (clojure    . t)
+     (python     . t)
+     (ruby       . t)
+     (dot        . t)
+     (css        . t)
+     (plantuml   . t)))
+#+end_src
+
+* 代码块设置
+
+代码块可以有0个或者多个头参数
