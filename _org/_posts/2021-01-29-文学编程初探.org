@@ -70,3 +70,74 @@ shell使用输出到标准输入的内容作为结果
 * 代码块设置
 
 代码块可以有0个或者多个头参数
+
+** 例子：dir参数
+该参数会设置代码块执行的工作目录:
+#+begin_src shell :dir /etc
+  ls
+#+end_src
+
+该参数可以通过Tramp实现在远程服务器上执行代码
+
+#+begin_src shell
+hostname -f
+#+end_src
+
+#+RESULTS:
+: WSSHA126093G1J1.local
+
+#+begin_src sh :dir /5zyx.com:
+hostname -f
+#+end_src
+
+* 设置头参数的位置
+
+不同位置设置参数所影响的作用域不一样，下面以作用域从特殊到一般的顺序列出
+
+- 头参数嵌入到代码块中，或者在代码块上面
+- 设置某一标题下面所有代码块的默认头参数
+- 设置整个文档中所有代码块的默认头参数
+- 设置所有文档中所有代码块的默认头参数
+  
+若要设置所有文档的某个参数，可以设置下列参数:
+- org-babel-default-header-args
+- org-babel-default-header-args:<lang>
+
+~注意:~ 可以在代码块被调用时设置头参数
+
+* 太多参数了？
+
+若需要设置许多的参数，可以考虑将一个或多个参数放到代码块的上面去。 以下几个例子等价:
+
+#+begin_src sh :dir /etc :var USER="root"
+grep $USER passwd
+#+end_src
+
+#+HEADER: :dir /etc
+#+begin_src sh :var USER="root"
+grep $USER passwd
+#+end_src
+
+#+HEADER: :dir /etc
+#+HEADER: :var USER="root"
+#+begin_src sh
+grep $USER passwd
+#+end_src
+
+
+* 设置某一标题下面所有代码块的默认头参数
+:PROPERTIES:
+:dir:      /etc
+:END:
+
+#+begin_src ruby
+File.absolute_path(".")
+
+#+end_src
+
+可以将头参数的设置放入标题下的属性drawer中
+
+1. 在org文件中创建一个标题
+2. 输入 =C-c C-x p=
+3. 输入属性名称 :dir
+4. 输入属性值 /etc
